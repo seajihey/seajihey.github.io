@@ -3,46 +3,358 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light" />
   <title>SEO JI HYE | Portfolio</title>
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif; margin:0; background:#0b0f17; color:#e8eefc;}
-    .wrap{max-width:900px; margin:0 auto; padding:48px 20px;}
-    .card{background:#121a2a; border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:24px; margin-bottom:16px;}
-    h1{margin:0 0 8px; font-size:32px;}
-    h2{margin:0 0 12px; font-size:18px; opacity:.9;}
-    .muted{opacity:.75}
-    ul{margin:8px 0 0 18px}
-    a{color:#9cc2ff}
-  </style>
+  <meta name="description" content="서지혜(SEO JI HYE) 포트폴리오" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>서지혜 (SEO JI HYE)</h1>
-      <div class="muted">Seoul, South Korea · okcoco03 [at] naver.com</div>
-    </div>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">SEO JI HYE</span>
+      </a>
 
-    <div class="card">
-      <h2>About Me</h2>
-      <p class="muted">
-        새로운 기술을 단순히 사용하는 데서 그치지 않고, 왜 그렇게 동작하는지 구조와 원리를 이해하려는 개발자입니다.
-      </p>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#experience">Experience</a>
+        <a class="nav__link" href="#projects">Projects</a>
+        <a class="nav__link" href="#skills">Skills</a>
+        <a class="nav__link nav__cta" href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="card">
-      <h2>Experience</h2>
-      <ul>
-        <li>우리FIS 아카데미 (Cloud Engineering) — 2025.12 ~ 2026.06</li>
-        <li>Melog (Backend, Spring Boot) — 2025.03 ~ 현재</li>
-        <li>Docker 기술 세미나 — 2026.01 ~ 2026.02</li>
-        <li>Codive — 2024.06 ~ 2025.12</li>
-      </ul>
-    </div>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__left">
+          <p class="badge">Cloud · Infra · Backend</p>
+          <h1 class="hero__title">서지혜 <span class="hero__en">(SEO JI HYE)</span></h1>
+          <p class="hero__subtitle">
+            구조와 원리를 이해하는 방식으로 인프라·백엔드를 설계하고,
+            운영 관점에서 안정적으로 굴러가는 시스템을 지향합니다.
+          </p>
 
-    <div class="card">
-      <h2>Skills</h2>
-      <p class="muted">Linux · Docker · AWS · Spring Boot · PostgreSQL · Elasticsearch · GitHub · Jenkins · ELK</p>
-    </div>
-  </div>
+          <div class="hero__meta">
+            <div class="meta">
+              <span class="meta__k">Location</span>
+              <span class="meta__v">Seoul, South Korea</span>
+            </div>
+            <div class="meta">
+              <span class="meta__k">Email</span>
+              <a class="meta__v link" href="mailto:okcoco03@naver.com">okcoco03@naver.com</a>
+            </div>
+            <div class="meta">
+              <span class="meta__k">Phone</span>
+              <span class="meta__v">010-4664-3621</span>
+            </div>
+          </div>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#projects">프로젝트 보기</a>
+            <a class="btn btn--ghost" href="#contact">연락하기</a>
+          </div>
+
+          <div class="hero__chips" aria-label="highlights">
+            <span class="chip">Linux 기반 인프라</span>
+            <span class="chip">Docker / Kubernetes</span>
+            <span class="chip">AWS · S3</span>
+            <span class="chip">Spring Boot</span>
+            <span class="chip">ELK / Elasticsearch</span>
+          </div>
+        </div>
+
+        <aside class="hero__right">
+          <div class="card card--profile">
+            <div class="profile">
+              <div class="avatar" aria-hidden="true">
+                <span class="avatar__ring"></span>
+                <span class="avatar__dot"></span>
+              </div>
+              <div class="profile__text">
+                <p class="profile__name">SEO JI HYE</p>
+                <p class="profile__desc">Cloud Engineering · Backend</p>
+              </div>
+            </div>
+
+            <div class="statgrid">
+              <div class="stat">
+                <p class="stat__k">Cert</p>
+                <p class="stat__v">TOEIC Speaking IH</p>
+              </div>
+              <div class="stat">
+                <p class="stat__k">Focus</p>
+                <p class="stat__v">운영 가능한 구조</p>
+              </div>
+              <div class="stat">
+                <p class="stat__k">Interest</p>
+                <p class="stat__v">Observability</p>
+              </div>
+              <div class="stat">
+                <p class="stat__k">Stack</p>
+                <p class="stat__v">Infra · Cloud</p>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="quicklinks">
+              <a class="q" href="#experience">
+                <span class="q__k">Experience</span>
+                <span class="q__v">교육·프로젝트 요약</span>
+              </a>
+              <a class="q" href="#skills">
+                <span class="q__k">Skills</span>
+                <span class="q__v">핵심 기술 스택</span>
+              </a>
+              <a class="q" href="#contact">
+                <span class="q__k">Contact</span>
+                <span class="q__v">메일/전화</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">About</h2>
+          <p class="section__desc">“왜 이렇게 동작하는지”를 기준으로 설계하고 구현합니다.</p>
+        </div>
+
+        <div class="grid grid--2">
+          <article class="card">
+            <h3 class="card__title">강점</h3>
+            <p class="card__text">
+              요구사항을 넓게 해석하고, 데이터 흐름·예외 상황·확장 가능성까지 고려해 구조적으로 접근합니다.
+              빠르게 1차 완성 후 리팩토링으로 완성도를 끌어올리는 방식으로 개발 효율을 유지합니다.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">개선 중인 점</h3>
+            <p class="card__text">
+              혼자 깊이 파고드는 성향으로 초기 공유가 늦어질 때가 있음을 인지하고 있습니다.
+              일정 시간 내 해결되지 않는 이슈는 시도한 방법/막힌 지점을 정리해 팀과 공유하는 습관을 강화하고 있습니다.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section section--tint">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Experience</h2>
+          <p class="section__desc">교육, 프로젝트, 인턴십 경험을 시간순으로 정리했습니다.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item card">
+            <div class="tl-top">
+              <h3 class="tl-title">우리FIS 아카데미 수료 · Cloud Engineering</h3>
+              <span class="tl-date">2025.12 – 2026.06</span>
+            </div>
+            <ul class="list">
+              <li>Linux 기반 인프라, 네트워크, 가상화, Docker, Kubernetes, AWS 아키텍처 집중 학습</li>
+              <li>Jenkins 기반 CI/CD, DevOps 및 IaC 개념 실습</li>
+              <li>ELK Stack 기반 로그 수집·분석 및 파이프라인 구축(Filebeat → Logstash → Elasticsearch)</li>
+            </ul>
+          </div>
+
+          <div class="tl-item card">
+            <div class="tl-top">
+              <h3 class="tl-title">Melog · 클래식 음악 SNS(백엔드)</h3>
+              <span class="tl-date">2025.03 – 현재</span>
+            </div>
+            <ul class="list">
+              <li>Spring Boot 기반 도메인 설계 및 구현(JPA 매핑, PostgreSQL 스키마 설계)</li>
+              <li>검색/필터링 API(작곡가·시대·악기·분위기 태그)</li>
+              <li>AWS S3 연동 업로드/조회, Elasticsearch 기반 검색 로그 저장</li>
+              <li>Docker 기반 서버 실행 환경 구성</li>
+            </ul>
+          </div>
+
+          <div class="tl-item card">
+            <div class="tl-top">
+              <h3 class="tl-title">Docker 관련 기술 세미나</h3>
+              <span class="tl-date">2026.01 – 2026.02</span>
+            </div>
+            <ul class="list">
+              <li>컨테이너/이미지 구조, 빌드 최적화, 운영 관점의 배포 개선 내용 발표</li>
+            </ul>
+          </div>
+
+          <div class="tl-item card">
+            <div class="tl-top">
+              <h3 class="tl-title">CJ올리브네트웍스 리모트 인턴십 5기 · 데이터분석 과정</h3>
+              <span class="tl-date">2025.01 – 2024.05</span>
+            </div>
+            <ul class="list">
+              <li>온라인 러닝 기반 직무 체험, 과제 수행, 멘토링 참여</li>
+            </ul>
+            <p class="note">
+              기간 표기가 역순으로 보입니다. 실제 기간이 2024.01–2024.05인지, 2025.01–2025.05인지 확인 후 수정 권장.
+            </p>
+          </div>
+
+          <div class="tl-item card">
+            <div class="tl-top">
+              <h3 class="tl-title">멋쟁이사자처럼 11기 · 백엔드 개발</h3>
+              <span class="tl-date">2023.03 – 2023.08</span>
+            </div>
+            <ul class="list">
+              <li>Django/Flask 기반 REST API 설계 및 구현, 협업(GitHub) 경험</li>
+              <li>프로젝트: 일정 관리 서비스(이때어때), 이동 경로 기록 서비스(Wheel_We_Go)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Projects</h2>
+          <p class="section__desc">핵심 프로젝트만 카드 형태로 요약했습니다.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="card project">
+            <div class="project__top">
+              <h3 class="card__title">Melog</h3>
+              <span class="pill">Backend</span>
+            </div>
+            <p class="card__text">
+              클래식 음악 검색·공유·기록 중심 SNS형 커뮤니티 서비스.
+            </p>
+            <ul class="tags">
+              <li class="tag">Spring Boot</li>
+              <li class="tag">PostgreSQL</li>
+              <li class="tag">S3</li>
+              <li class="tag">Docker</li>
+              <li class="tag">Elasticsearch</li>
+            </ul>
+            <div class="project__bottom">
+              <span class="muted">2025.03 – 현재</span>
+              <a class="link" href="#contact">레포/데모 링크 추가</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project__top">
+              <h3 class="card__title">n8n RAG 자동화 리팩토링 봇</h3>
+              <span class="pill pill--soft">DevOps</span>
+            </div>
+            <p class="card__text">
+              n8n을 활용한 RAG 기반 자동화 및 리팩토링 보조 워크플로 구성.
+            </p>
+            <ul class="tags">
+              <li class="tag">n8n</li>
+              <li class="tag">RAG</li>
+              <li class="tag">Automation</li>
+            </ul>
+            <div class="project__bottom">
+              <span class="muted">2026.01 – 2026.02</span>
+              <a class="link" href="#contact">레포/문서 링크 추가</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project__top">
+              <h3 class="card__title">Log Pipeline 실습</h3>
+              <span class="pill pill--soft">Observability</span>
+            </div>
+            <p class="card__text">
+              Filebeat → Logstash → Elasticsearch + RDBMS 파이프라인 구축 및 Kibana 시각화.
+            </p>
+            <ul class="tags">
+              <li class="tag">ELK</li>
+              <li class="tag">Filebeat</li>
+              <li class="tag">Logstash</li>
+              <li class="tag">Kibana</li>
+            </ul>
+            <div class="project__bottom">
+              <span class="muted">2025.12 – 2026.06</span>
+              <a class="link" href="#contact">자료 링크 추가</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section--tint">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Skills</h2>
+          <p class="section__desc">“해본 것”을 중심으로 깔끔하게 정리했습니다.</p>
+        </div>
+
+        <div class="grid grid--2">
+          <article class="card">
+            <h3 class="card__title">Infra / Cloud</h3>
+            <ul class="skill">
+              <li><span class="skill__k">Linux</span><span class="skill__v">기본 운영/네트워크/프로세스 흐름 이해</span></li>
+              <li><span class="skill__k">Docker</span><span class="skill__v">개발/배포 환경 구성, 이미지 최적화 학습</span></li>
+              <li><span class="skill__k">Kubernetes</span><span class="skill__v">기본 오브젝트/배포 흐름 실습</span></li>
+              <li><span class="skill__k">AWS</span><span class="skill__v">S3 연동, 아키텍처 학습</span></li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Backend / Data</h3>
+            <ul class="skill">
+              <li><span class="skill__k">Spring Boot</span><span class="skill__v">API 설계/도메인 구현 경험</span></li>
+              <li><span class="skill__k">PostgreSQL</span><span class="skill__v">스키마 설계 및 운영 기본</span></li>
+              <li><span class="skill__k">Elasticsearch</span><span class="skill__v">검색 로그 저장 및 분석 파이프라인</span></li>
+              <li><span class="skill__k">ELK</span><span class="skill__v">수집·가공·저장·시각화 실습</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact card">
+          <div class="contact__left">
+            <h2 class="section__title">Contact</h2>
+            <p class="section__desc">간단히 연락 주시면, 가능한 범위에서 빠르게 회신드리겠습니다.</p>
+          </div>
+
+          <div class="contact__right">
+            <a class="contact__item" href="mailto:okcoco03@naver.com">
+              <span class="contact__k">Email</span>
+              <span class="contact__v">okcoco03@naver.com</span>
+            </a>
+            <div class="contact__item">
+              <span class="contact__k">Phone</span>
+              <span class="contact__v">010-4664-3621</span>
+            </div>
+            <a class="contact__item" href="#" onclick="alert('GitHub/Blog 링크를 여기에 넣어주세요.'); return false;">
+              <span class="contact__k">Links</span>
+              <span class="contact__v">GitHub · Blog · Notion</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="muted">© <span id="y"></span> SEO JI HYE. All rights reserved.</p>
+        <a class="link" href="#top">Back to top</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
