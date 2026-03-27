@@ -1,360 +1,1040 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="color-scheme" content="light" />
-  <title>SEO JI HYE | Portfolio</title>
-  <meta name="description" content="서지혜(SEO JI HYE) 포트폴리오" />
-  <link rel="stylesheet" href="./style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>서지혜 포트폴리오</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=DM+Mono:wght@300;400;500&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-mid: #3d3d3d;
+    --ink-light: #777;
+    --cream: #faf8f3;
+    --warm-white: #fffef9;
+    --accent: #1e3a5f;
+    --accent2: #c8a96e;
+    --line: #d4cfc4;
+    --tag-bg: #eef1f6;
+    --page-w: 794px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif KR', serif;
+    background: #e8e4dd;
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .page {
+    width: var(--page-w);
+    min-height: 1123px;
+    margin: 0 auto 40px;
+    background: var(--warm-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ─── COVER PAGE ─── */
+  .cover {
+    min-height: 1123px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .cover-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: var(--accent);
+    clip-path: polygon(0 0, 62% 0, 62% 100%, 0 100%);
+  }
+
+  .cover-grid {
+    position: absolute;
+    top: 0; left: 0;
+    width: 62%; height: 100%;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .cover-stripe {
+    position: absolute;
+    top: 0; left: 62%;
+    width: 4px; height: 100%;
+    background: var(--accent2);
+  }
+
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    height: 100%;
+    min-height: 1123px;
+  }
+
+  .cover-left {
+    width: 62%;
+    padding: 70px 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+  }
+
+  .cover-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .18em;
+    color: var(--accent2);
+    text-transform: uppercase;
+    margin-bottom: 60px;
+  }
+
+  .cover-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+
+  .cover-name-ko {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: rgba(255,255,255,.6);
+    letter-spacing: .12em;
+    margin-bottom: 36px;
+  }
+
+  .cover-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .12em;
+    color: rgba(255,255,255,.5);
+    text-transform: uppercase;
+    border-top: 1px solid rgba(255,255,255,.15);
+    padding-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .cover-about {
+    font-size: 13px;
+    line-height: 1.85;
+    color: rgba(255,255,255,.75);
+    max-width: 360px;
+  }
+
+  .cover-bottom {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,.35);
+    letter-spacing: .1em;
+  }
+
+  .cover-right {
+    width: 38%;
+    padding: 70px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 44px;
+  }
+
+  .info-block h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 11.5px;
+    color: var(--ink-mid);
+  }
+
+  .info-item .dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .skill-bars { display: flex; flex-direction: column; gap: 8px; }
+
+  .skill-bar-row { display: flex; align-items: center; gap: 10px; }
+
+  .skill-bar-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-mid);
+    width: 90px;
+    flex-shrink: 0;
+  }
+
+  .skill-bar-track {
+    flex: 1;
+    height: 4px;
+    background: var(--tag-bg);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  /* ─── INNER PAGES ─── */
+  .inner {
+    padding: 56px 60px;
+  }
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .page-header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -.01em;
+  }
+
+  .page-header-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-light);
+    letter-spacing: .1em;
+  }
+
+  /* ─── SECTION LABEL ─── */
+  .sec-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sec-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ─── EXPERIENCE CARD ─── */
+  .exp-card {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0 24px;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .exp-card:last-child { border-bottom: none; }
+
+  .exp-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--accent2);
+    line-height: 1.5;
+    padding-top: 3px;
+    letter-spacing: .05em;
+  }
+
+  .exp-org {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+
+  .exp-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .exp-desc {
+    font-size: 11.5px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px;
+  }
+
+  .tag {
+    background: var(--tag-bg);
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    padding: 3px 9px;
+    border-radius: 2px;
+    letter-spacing: .06em;
+  }
+
+  /* ─── PROJECT CARD ─── */
+  .proj-card {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    padding: 22px 24px;
+    margin-bottom: 22px;
+    background: var(--cream);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .proj-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .proj-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .proj-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: .06em;
+    flex-shrink: 0;
+    margin-left: 12px;
+    margin-top: 3px;
+  }
+
+  .proj-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .1em;
+    color: var(--accent2);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .proj-body {
+    font-size: 11.5px;
+    color: var(--ink-mid);
+    line-height: 1.78;
+  }
+
+  .proj-list {
+    list-style: none;
+    margin: 8px 0;
+  }
+
+  .proj-list li {
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    font-size: 11px;
+    color: var(--ink-mid);
+  }
+
+  .proj-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+    font-size: 9px;
+    top: 2px;
+  }
+
+  .trouble-box {
+    background: #f0f4f9;
+    border-left: 2px solid var(--accent);
+    padding: 12px 16px;
+    margin-top: 10px;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .trouble-box .trouble-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .trouble-item {
+    font-size: 10.5px;
+    color: var(--ink-mid);
+    margin-bottom: 4px;
+    padding-left: 12px;
+    position: relative;
+    line-height: 1.65;
+  }
+  .trouble-item::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+    font-size: 7px;
+    top: 3px;
+  }
+
+  .outcome-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    letter-spacing: .08em;
+    margin-right: 5px;
+    margin-top: 8px;
+  }
+
+  /* ─── SKILLS GRID ─── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .skill-group h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+  }
+
+  .skill-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-mid);
+  }
+
+  .skill-dots { display: flex; gap: 3px; }
+
+  .dot-filled {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .dot-empty {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line);
+  }
+
+  /* ─── PRINT ─── */
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; page-break-after: always; box-shadow: none; }
+    @page { margin: 0; size: A4; }
+  }
+
+  @media screen {
+    body { padding: 40px 0; }
+    .page { box-shadow: 0 4px 40px rgba(0,0,0,.13); }
+  }
+</style>
 </head>
-
 <body>
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <a class="brand" href="#top">
-        <span class="brand__mark" aria-hidden="true"></span>
-        <span class="brand__text">SEO JI HYE</span>
-      </a>
 
-      <nav class="nav" aria-label="Primary">
-        <a class="nav__link" href="#about">About</a>
-        <a class="nav__link" href="#experience">Experience</a>
-        <a class="nav__link" href="#projects">Projects</a>
-        <a class="nav__link" href="#skills">Skills</a>
-        <a class="nav__link nav__cta" href="#contact">Contact</a>
-      </nav>
+<!-- ═══════════════ PAGE 1: COVER ═══════════════ -->
+<div class="page cover">
+  <div class="cover-bg"></div>
+  <div class="cover-grid"></div>
+  <div class="cover-stripe"></div>
+
+  <div class="cover-content">
+    <div class="cover-left">
+      <div>
+        <div class="cover-label">Portfolio · 2026</div>
+        <div class="cover-name">SEO<br>JIHYE</div>
+        <div class="cover-name-ko">서 지 혜</div>
+        <div class="cover-role">Backend Engineer &nbsp;·&nbsp; Cloud Engineering</div>
+        <div class="cover-about">
+          새로운 기술을 접할 때 단순히 사용법을 익히기보다, <strong style="color:#fff">구조와 원리를 이해하려는 개발자</strong>입니다.<br><br>
+          Linux 기반 인프라·컨테이너·클라우드 환경부터 Spring Boot 백엔드 개발,
+          VMware vSphere 자동화, Elasticsearch 검색 시스템까지 경험을 쌓아왔습니다.<br><br>
+          장기적으로 유지보수 가능한 구조를 만들고,
+          시스템을 안정적으로 운영하는 엔지니어를 목표로 합니다.
+        </div>
+      </div>
+      <div class="cover-bottom">© 서지혜 포트폴리오 2026</div>
     </div>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero__inner">
-        <div class="hero__left">
-          <p class="badge">Cloud · Infra · Backend</p>
-          <h1 class="hero__title">서지혜 <span class="hero__en">(SEO JI HYE)</span></h1>
-          <p class="hero__subtitle">
-            구조와 원리를 이해하는 방식으로 인프라·백엔드를 설계하고,
-            운영 관점에서 안정적으로 굴러가는 시스템을 지향합니다.
-          </p>
-
-          <div class="hero__meta">
-            <div class="meta">
-              <span class="meta__k">Location</span>
-              <span class="meta__v">Seoul, South Korea</span>
-            </div>
-            <div class="meta">
-              <span class="meta__k">Email</span>
-              <a class="meta__v link" href="mailto:okcoco03@naver.com">okcoco03@naver.com</a>
-            </div>
-            <div class="meta">
-              <span class="meta__k">Phone</span>
-              <span class="meta__v">010-4664-3621</span>
-            </div>
-          </div>
-
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#projects">프로젝트 보기</a>
-            <a class="btn btn--ghost" href="#contact">연락하기</a>
-          </div>
-
-          <div class="hero__chips" aria-label="highlights">
-            <span class="chip">Linux 기반 인프라</span>
-            <span class="chip">Docker / Kubernetes</span>
-            <span class="chip">AWS · S3</span>
-            <span class="chip">Spring Boot</span>
-            <span class="chip">ELK / Elasticsearch</span>
-          </div>
-        </div>
-
-        <aside class="hero__right">
-          <div class="card card--profile">
-            <div class="profile">
-              <div class="avatar" aria-hidden="true">
-                <span class="avatar__ring"></span>
-                <span class="avatar__dot"></span>
-              </div>
-              <div class="profile__text">
-                <p class="profile__name">SEO JI HYE</p>
-                <p class="profile__desc">Cloud Engineering · Backend</p>
-              </div>
-            </div>
-
-            <div class="statgrid">
-              <div class="stat">
-                <p class="stat__k">Cert</p>
-                <p class="stat__v">TOEIC Speaking IH</p>
-              </div>
-              <div class="stat">
-                <p class="stat__k">Focus</p>
-                <p class="stat__v">운영 가능한 구조</p>
-              </div>
-              <div class="stat">
-                <p class="stat__k">Interest</p>
-                <p class="stat__v">Observability</p>
-              </div>
-              <div class="stat">
-                <p class="stat__k">Stack</p>
-                <p class="stat__v">Infra · Cloud</p>
-              </div>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="quicklinks">
-              <a class="q" href="#experience">
-                <span class="q__k">Experience</span>
-                <span class="q__v">교육·프로젝트 요약</span>
-              </a>
-              <a class="q" href="#skills">
-                <span class="q__k">Skills</span>
-                <span class="q__v">핵심 기술 스택</span>
-              </a>
-              <a class="q" href="#contact">
-                <span class="q__k">Contact</span>
-                <span class="q__v">메일/전화</span>
-              </a>
-            </div>
-          </div>
-        </aside>
+    <div class="cover-right">
+      <div class="info-block">
+        <h4>Contact</h4>
+        <div class="info-item"><span class="dot"></span>Seoul, South Korea</div>
+        <div class="info-item"><span class="dot"></span>010-4664-3621</div>
+        <div class="info-item"><span class="dot"></span>okcoco03@naver.com</div>
+        <div class="info-item"><span class="dot"></span>github.com/seajihey</div>
       </div>
-    </section>
 
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title">About</h2>
-          <p class="section__desc">“왜 이렇게 동작하는지”를 기준으로 설계하고 구현합니다.</p>
-        </div>
-
-        <div class="grid grid--2">
-          <article class="card">
-            <h3 class="card__title">강점</h3>
-            <p class="card__text">
-              요구사항을 넓게 해석하고, 데이터 흐름·예외 상황·확장 가능성까지 고려해 구조적으로 접근합니다.
-              빠르게 1차 완성 후 리팩토링으로 완성도를 끌어올리는 방식으로 개발 효율을 유지합니다.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="card__title">개선 중인 점</h3>
-            <p class="card__text">
-              혼자 깊이 파고드는 성향으로 초기 공유가 늦어질 때가 있음을 인지하고 있습니다.
-              일정 시간 내 해결되지 않는 이슈는 시도한 방법/막힌 지점을 정리해 팀과 공유하는 습관을 강화하고 있습니다.
-            </p>
-          </article>
-        </div>
+      <div class="info-block">
+        <h4>Certification</h4>
+        <div class="info-item"><span class="dot"></span>TOEIC Speaking IH</div>
       </div>
-    </section>
 
-    <section id="experience" class="section section--tint">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title">Experience</h2>
-          <p class="section__desc">교육, 프로젝트, 인턴십 경험을 시간순으로 정리했습니다.</p>
-        </div>
-
-        <div class="timeline">
-          <div class="tl-item card">
-            <div class="tl-top">
-              <h3 class="tl-title">우리FIS 아카데미 수료 · Cloud Engineering</h3>
-              <span class="tl-date">2025.12 – 2026.06</span>
-            </div>
-            <ul class="list">
-              <li>Linux 기반 인프라, 네트워크, 가상화, Docker, Kubernetes, AWS 아키텍처 집중 학습</li>
-              <li>Jenkins 기반 CI/CD, DevOps 및 IaC 개념 실습</li>
-              <li>ELK Stack 기반 로그 수집·분석 및 파이프라인 구축(Filebeat → Logstash → Elasticsearch)</li>
-            </ul>
+      <div class="info-block">
+        <h4>Core Skills</h4>
+        <div class="skill-bars">
+          <div class="skill-bar-row">
+            <span class="skill-bar-name">Spring Boot</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
           </div>
-
-          <div class="tl-item card">
-            <div class="tl-top">
-              <h3 class="tl-title">Melog · 클래식 음악 SNS(백엔드)</h3>
-              <span class="tl-date">2025.03 – 현재</span>
-            </div>
-            <ul class="list">
-              <li>Spring Boot 기반 도메인 설계 및 구현(JPA 매핑, PostgreSQL 스키마 설계)</li>
-              <li>검색/필터링 API(작곡가·시대·악기·분위기 태그)</li>
-              <li>AWS S3 연동 업로드/조회, Elasticsearch 기반 검색 로그 저장</li>
-              <li>Docker 기반 서버 실행 환경 구성</li>
-            </ul>
+          <div class="skill-bar-row">
+            <span class="skill-bar-name">Java</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
           </div>
-
-          <div class="tl-item card">
-            <div class="tl-top">
-              <h3 class="tl-title">Docker 관련 기술 세미나</h3>
-              <span class="tl-date">2026.01 – 2026.02</span>
-            </div>
-            <ul class="list">
-              <li>컨테이너/이미지 구조, 빌드 최적화, 운영 관점의 배포 개선 내용 발표</li>
-            </ul>
+          <div class="skill-bar-row">
+            <span class="skill-bar-name">Docker</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
           </div>
-
-          <div class="tl-item card">
-            <div class="tl-top">
-              <h3 class="tl-title">CJ올리브네트웍스 리모트 인턴십 5기 · 데이터분석 과정</h3>
-              <span class="tl-date">2025.01 – 2024.05</span>
-            </div>
-            <ul class="list">
-              <li>온라인 러닝 기반 직무 체험, 과제 수행, 멘토링 참여</li>
-            </ul>
-            <p class="note">
-              기간 표기가 역순으로 보입니다. 실제 기간이 2024.01–2024.05인지, 2025.01–2025.05인지 확인 후 수정 권장.
-            </p>
+          <div class="skill-bar-row">
+            <span class="skill-bar-name">VMware/vSphere</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
           </div>
-
-          <div class="tl-item card">
-            <div class="tl-top">
-              <h3 class="tl-title">멋쟁이사자처럼 11기 · 백엔드 개발</h3>
-              <span class="tl-date">2023.03 – 2023.08</span>
-            </div>
-            <ul class="list">
-              <li>Django/Flask 기반 REST API 설계 및 구현, 협업(GitHub) 경험</li>
-              <li>프로젝트: 일정 관리 서비스(이때어때), 이동 경로 기록 서비스(Wheel_We_Go)</li>
-            </ul>
+          <div class="skill-bar-row">
+            <span class="skill-bar-name">Python</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:60%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-bar-name">FastAPI</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:60%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-bar-name">Elasticsearch</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:60%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-bar-name">PostgreSQL</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:60%"></div></div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</div>
 
-    <section id="projects" class="section">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title">Projects</h2>
-          <p class="section__desc">핵심 프로젝트만 카드 형태로 요약했습니다.</p>
-        </div>
+<!-- ═══════════════ PAGE 2: EXPERIENCE ═══════════════ -->
+<div class="page inner">
+  <div class="page-header">
+    <div class="page-header-title">Experience</div>
+    <div class="page-header-num">02 / 05</div>
+  </div>
 
-        <div class="grid grid--3">
-          <article class="card project">
-            <div class="project__top">
-              <h3 class="card__title">Melog</h3>
-              <span class="pill">Backend</span>
-            </div>
-            <p class="card__text">
-              클래식 음악 검색·공유·기록 중심 SNS형 커뮤니티 서비스.
-            </p>
-            <ul class="tags">
-              <li class="tag">Spring Boot</li>
-              <li class="tag">PostgreSQL</li>
-              <li class="tag">S3</li>
-              <li class="tag">Docker</li>
-              <li class="tag">Elasticsearch</li>
-            </ul>
-            <div class="project__bottom">
-              <span class="muted">2025.03 – 현재</span>
-              <a class="link" href="#contact">레포/데모 링크 추가</a>
-            </div>
-          </article>
+  <div class="sec-label">Education &amp; Program</div>
 
-          <article class="card project">
-            <div class="project__top">
-              <h3 class="card__title">n8n RAG 자동화 리팩토링 봇</h3>
-              <span class="pill pill--soft">DevOps</span>
-            </div>
-            <p class="card__text">
-              n8n을 활용한 RAG 기반 자동화 및 리팩토링 보조 워크플로 구성.
-            </p>
-            <ul class="tags">
-              <li class="tag">n8n</li>
-              <li class="tag">RAG</li>
-              <li class="tag">Automation</li>
-            </ul>
-            <div class="project__bottom">
-              <span class="muted">2026.01 – 2026.02</span>
-              <a class="link" href="#contact">레포/문서 링크 추가</a>
-            </div>
-          </article>
+  <div class="exp-card">
+    <div class="exp-date">2025.12<br>— 현재</div>
+    <div>
+      <div class="exp-org">우리FIS 아카데미</div>
+      <div class="exp-role">Cloud Engineering Track</div>
+      <div class="exp-desc">
+        고용노동부 주최 / 한국산업인력공단 주관 청년취업아카데미 연수과정.<br>
+        Linux 기반 인프라·네트워크·서버·가상화(VMware), Docker, Kubernetes, AWS 아키텍처 집중 교육.
+        GitHub 형상관리, Jenkins CI/CD, DevOps·IaC 개념, ELK Stack 기반 로그 수집·분석 실습.
+      </div>
+      <div class="exp-tags">
+        <span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">Kubernetes</span>
+        <span class="tag">AWS</span><span class="tag">Jenkins CI/CD</span><span class="tag">ELK Stack</span>
+        <span class="tag">VMware</span><span class="tag">IaC</span>
+      </div>
+    </div>
+  </div>
 
-          <article class="card project">
-            <div class="project__top">
-              <h3 class="card__title">Log Pipeline 실습</h3>
-              <span class="pill pill--soft">Observability</span>
-            </div>
-            <p class="card__text">
-              Filebeat → Logstash → Elasticsearch + RDBMS 파이프라인 구축 및 Kibana 시각화.
-            </p>
-            <ul class="tags">
-              <li class="tag">ELK</li>
-              <li class="tag">Filebeat</li>
-              <li class="tag">Logstash</li>
-              <li class="tag">Kibana</li>
-            </ul>
-            <div class="project__bottom">
-              <span class="muted">2025.12 – 2026.06</span>
-              <a class="link" href="#contact">자료 링크 추가</a>
-            </div>
-          </article>
+  <div class="exp-card">
+    <div class="exp-date">2025.01<br>— 2025.05</div>
+    <div>
+      <div class="exp-org">CJ올리브네트웍스 리모트 인턴십 5기</div>
+      <div class="exp-role">Data Analytics Track</div>
+      <div class="exp-desc">
+        CJ올리브네트웍스·한국경제신문·퍼브 공동 주관 미래내일 일경험 리모트 인턴십 프로그램.
+        직무 기반 실무형 체험 및 DT(Digital Transformation) 역량 강화 교육, 데이터 기획·분석 중심 학습, 전문가 특강·멘토링 참여.
+      </div>
+      <div class="exp-tags">
+        <span class="tag">Data Analytics</span><span class="tag">DT</span><span class="tag">Mentoring</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-card">
+    <div class="exp-date">2023.03<br>— 2023.08</div>
+    <div>
+      <div class="exp-org">멋쟁이사자처럼 11기</div>
+      <div class="exp-role">Backend Development Track</div>
+      <div class="exp-desc">
+        대학생 IT 창업·개발 동아리. Python·Django·Flask 기반 웹 백엔드 개발 및 REST API 설계 학습.
+        GitHub 협업·브랜치 전략·코드 리뷰. 기획 → ERD 설계 → 모델링 → API 구현 → 프론트 연동까지 전 과정 경험.
+      </div>
+      <div class="exp-tags">
+        <span class="tag">Python</span><span class="tag">Django</span><span class="tag">Flask</span>
+        <span class="tag">REST API</span><span class="tag">GitHub</span>
+      </div>
+      <div style="margin-top:10px;">
+        <div style="font-family:'DM Mono',monospace;font-size:9.5px;color:var(--accent);letter-spacing:.08em;margin-bottom:6px;">개발 참여 프로젝트</div>
+        <div style="font-size:11px;color:var(--ink-mid);line-height:1.7;">
+          <strong>이때어때</strong> — 일정 관리 서비스. Django 인증·회원·CRUD API, RESTful 구조 설계.<br>
+          <strong>Wheel_We_Go</strong> — 휠체어 이동 경로 기록 서비스. DRF 기반 API, Tmap 연동, 좌표 데이터 설계.
         </div>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <section id="skills" class="section section--tint">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title">Skills</h2>
-          <p class="section__desc">“해본 것”을 중심으로 깔끔하게 정리했습니다.</p>
-        </div>
+</div>
 
-        <div class="grid grid--2">
-          <article class="card">
-            <h3 class="card__title">Infra / Cloud</h3>
-            <ul class="skill">
-              <li><span class="skill__k">Linux</span><span class="skill__v">기본 운영/네트워크/프로세스 흐름 이해</span></li>
-              <li><span class="skill__k">Docker</span><span class="skill__v">개발/배포 환경 구성, 이미지 최적화 학습</span></li>
-              <li><span class="skill__k">Kubernetes</span><span class="skill__v">기본 오브젝트/배포 흐름 실습</span></li>
-              <li><span class="skill__k">AWS</span><span class="skill__v">S3 연동, 아키텍처 학습</span></li>
-            </ul>
-          </article>
+<!-- ═══════════════ PAGE 3: PROJECT 1 + 2 ═══════════════ -->
+<div class="page inner">
+  <div class="page-header">
+    <div class="page-header-title">Projects</div>
+    <div class="page-header-num">03 / 05</div>
+  </div>
 
-          <article class="card">
-            <h3 class="card__title">Backend / Data</h3>
-            <ul class="skill">
-              <li><span class="skill__k">Spring Boot</span><span class="skill__v">API 설계/도메인 구현 경험</span></li>
-              <li><span class="skill__k">PostgreSQL</span><span class="skill__v">스키마 설계 및 운영 기본</span></li>
-              <li><span class="skill__k">Elasticsearch</span><span class="skill__v">검색 로그 저장 및 분석 파이프라인</span></li>
-              <li><span class="skill__k">ELK</span><span class="skill__v">수집·가공·저장·시각화 실습</span></li>
-            </ul>
-          </article>
+  <!-- VM Provisioning Portal -->
+  <div class="proj-card">
+    <div class="proj-header">
+      <div>
+        <div class="proj-title">VM Provisioning Portal</div>
+        <div class="proj-sub">Spring Boot · VMware vSphere · Apache Guacamole</div>
+      </div>
+      <div class="proj-period">2026.03</div>
+    </div>
+    <div class="proj-body">
+      vCenter 콘솔에서 수동으로 수행하던 VM 생성 작업을 웹 기반 자동화 포털로 전환한 프로젝트.
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin-top:10px;">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">역할</div>
+        <ul class="proj-list">
+          <li>VMware vCenter와 통신하는 VM 배포 API 및 원격 접속 연동 API 설계·구현</li>
+          <li>Entity, DTO, Repository, Service, Controller 계층형 아키텍처 설계</li>
+          <li>vSphere Web Services SDK로 템플릿 기반 VM Clone, CPU·Memory 설정, 네트워크 재매핑, Guest Customization(IP 설정) 자동화</li>
+          <li>Apache Guacamole REST API 연동 — VM 생성 후 웹에서 바로 원격 접속 URL 자동 생성</li>
+          <li>ProvisionRequest 엔티티 설계 및 배포 이력 저장 구조 구현</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">성과</div>
+        <ul class="proj-list">
+          <li>수동 VM 생성 작업을 API 기반 자동화 프로세스로 전환</li>
+          <li>템플릿 Clone → 리소스 설정 → 네트워크 구성까지 단일 API 호출로 처리</li>
+          <li>Guacamole 연동으로 웹 브라우저 원격 콘솔 URL 즉시 제공</li>
+          <li>가상화 인프라와 백엔드 서비스를 연결하는 자동화 포털 구조 직접 설계</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-tags" style="margin-top:12px;">
+      <span class="tag">Spring Boot</span><span class="tag">VMware vSphere SDK</span>
+      <span class="tag">Apache Guacamole</span><span class="tag">JPA</span><span class="tag">REST API</span>
+    </div>
+  </div>
+
+  <!-- Melog -->
+  <div class="proj-card">
+    <div class="proj-header">
+      <div>
+        <div class="proj-title">Melog</div>
+        <div class="proj-sub">Spring Boot · Elasticsearch · Docker · AWS S3 · Android App</div>
+      </div>
+      <div class="proj-period">2025.03 — 현재</div>
+    </div>
+    <div class="proj-body">
+      클래식 음악을 쉽게 검색·공유·기록·소통할 수 있는 SNS형 커뮤니티 서비스. 공연·전시 정보 연계 캘린더 기반 감상 기록 기능 제공.
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin-top:10px;">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">역할</div>
+        <ul class="proj-list">
+          <li>회원, 게시글, 댓글, 좋아요, 북마크, 팔로우 SNS 핵심 도메인 엔티티 설계 및 JPA 매핑</li>
+          <li>PostgreSQL 기반 관계형 DB 스키마 설계</li>
+          <li>작곡가·시대·연주자·악기·분위기 태그 기반 검색·필터링 API 구현</li>
+          <li>YouTube Data API 연동 콘텐츠 검색 확장</li>
+          <li>AWS S3 이미지·미디어 업로드/조회 기능 개발</li>
+          <li>Elasticsearch 기반 검색 로그 수집 환경 구성</li>
+          <li>Docker Compose 기반 개발 환경 구성</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">성과 &amp; 문제 해결</div>
+        <ul class="proj-list">
+          <li>API 명세 표준화로 팀 협업 효율 향상</li>
+          <li>계층형 구조 직접 설계하여 독립적 백엔드 개발 역량 확보</li>
+          <li>Elasticsearch 보안 설정·Docker Compose 운영 이슈 직접 해결</li>
+          <li>인증/권한, 포트 충돌, DTO 분리, 메모리 사용량 등 구조적 문제 해결 경험</li>
+          <li>추천 시스템 도입을 고려한 사용자 행동 데이터 및 콘텐츠 메타데이터 설계</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-tags" style="margin-top:12px;">
+      <span class="tag">Spring Boot</span><span class="tag">JPA</span><span class="tag">PostgreSQL</span>
+      <span class="tag">Elasticsearch</span><span class="tag">AWS S3</span>
+      <span class="tag">YouTube API</span><span class="tag">Docker Compose</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 4: PROJECT 3 + 4 ═══════════════ -->
+<div class="page inner">
+  <div class="page-header">
+    <div class="page-header-title">Projects</div>
+    <div class="page-header-num">04 / 05</div>
+  </div>
+
+  <!-- Codive -->
+  <div class="proj-card">
+    <div class="proj-header">
+      <div>
+        <div class="proj-title">Codive</div>
+        <div class="proj-sub">FastAPI · Python · Real-time Competitive Coding Platform</div>
+      </div>
+      <div class="proj-period">2024.06 — 2025.12</div>
+    </div>
+    <div class="proj-body">
+      사용자 간 실시간 프로그래밍 문제 풀이 경쟁 및 랭킹 확인이 가능한 온라인 코딩 플랫폼.
+      문제 풀이 기록·제출 결과·랭킹 데이터 기반 서비스 구조 설계.
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin-top:10px;">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">역할</div>
+        <ul class="proj-list">
+          <li>FastAPI 기반 백엔드 설계 및 구현, UI/UX 설계</li>
+          <li>사용자·문제·제출 기록·랭킹 도메인 DB 모델링</li>
+          <li>문제 제출 및 채점 결과 저장 API 개발</li>
+          <li>사용자 랭킹 집계 로직 구현</li>
+          <li>GitHub 기반 협업 및 버전 관리</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">성과</div>
+        <ul class="proj-list">
+          <li>실시간 경쟁 요소 포함 코딩 플랫폼 핵심 기능 구현</li>
+          <li>데이터 흐름 중심 도메인 설계로 서비스 확장 가능 구조 확보</li>
+          <li>백엔드 API 중심 설계 경험으로 서버 사이드 로직 이해도 향상</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="trouble-box">
+      <div class="trouble-title">Trouble Shooting</div>
+      <div class="trouble-item">AI 힌트 할루시네이션 → 프롬프트에 문제 조건·입출력·제약 명시 + 후처리 힌트 형태로 구조 변경</div>
+      <div class="trouble-item">채점 결과 구분 모호 → Compile Error / Runtime Error / TLE / Wrong Answer / Accepted 세분화 저장</div>
+      <div class="trouble-item">공백·개행 차이로 오답 처리 → trim, 개행 통일, 불필요 공백 제거 후 비교 로직 개선</div>
+      <div class="trouble-item">디버깅 난이도 → 제출 코드·실행 로그·표준 출력/에러 함께 저장하여 추적 가능 구조 구현</div>
+    </div>
+
+    <div class="exp-tags" style="margin-top:10px;">
+      <span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">DB Modeling</span>
+      <span class="tag">REST API</span><span class="tag">GitHub</span>
+    </div>
+  </div>
+
+  <!-- n8n Vibecode -->
+  <div class="proj-card">
+    <div class="proj-header">
+      <div>
+        <div class="proj-title">Vibecode (n8n RAG 자동화 봇)</div>
+        <div class="proj-sub">n8n · Gemini Embedding · Pinecone · Slack API · RAG Pipeline</div>
+      </div>
+      <div class="proj-period">2026.01 — 2026.02</div>
+    </div>
+    <div class="proj-body">
+      Slack 멘션 기반으로 Java 코드를 자동 검수·리팩토링하는 RAG 기반 자동화 봇.
+      Google/NAVER Java 스타일 가이드를 실시간 수집·정제·인덱싱하여 근거 기반 리팩토링 제공.
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin-top:10px;">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">역할</div>
+        <ul class="proj-list">
+          <li>HTTP Request → HTML Extract → Code → AI Agent → Pinecone 노드 연계 구성</li>
+          <li>Gemini Embedding + Pinecone Vector DB 기반 규정 준수 RAG 구조 설계</li>
+          <li>Slack API 연동 멘션 트리거 및 스레드 응답 자동화 구현</li>
+          <li>AI Agent 페르소나 및 출력 포맷(코드/Why/References) 정의</li>
+          <li>모든 리팩토링 제안에 Evidence ID(R1, R2…) 매핑하여 출처 추적 구조 구현</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">성과</div>
+        <ul class="proj-list">
+          <li>공신력 있는 문서 기반 리팩토링 자동화 파이프라인 구축</li>
+          <li>Slack 기반 인터페이스로 팀 코드 리뷰 소요 시간 단축</li>
+          <li>임베딩-벡터 검색-생성 흐름 실전 이해 확보</li>
+          <li>LLM 중복 호출 방지 및 비용 절감 워크플로우 최적화</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="trouble-box">
+      <div class="trouble-title">Trouble Shooting</div>
+      <div class="trouble-item">Pinecone 단일 노드에서 Gemini 연동 실패 → Insert / Retrieve 노드 분리로 해결</div>
+      <div class="trouble-item">대용량 스타일 가이드 인덱싱 시 토큰 과다 → HTML 정제 및 Chunk 크기 조정</div>
+      <div class="trouble-item">인덱싱 전 AI 실행으로 오결과 → Sync Gate(단일 신호) 구조 도입</div>
+      <div class="trouble-item">ELK 연동 시 부하 발생 → Grafana 기반 모니터링으로 방향 전환</div>
+    </div>
+
+    <div class="exp-tags" style="margin-top:10px;">
+      <span class="tag">n8n</span><span class="tag">RAG</span><span class="tag">Gemini Embedding</span>
+      <span class="tag">Pinecone</span><span class="tag">Slack API</span><span class="tag">Vector DB</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PAGE 5: SKILLS ═══════════════ -->
+<div class="page inner">
+  <div class="page-header">
+    <div class="page-header-title">Skills</div>
+    <div class="page-header-num">05 / 05</div>
+  </div>
+
+  <div class="sec-label">Technical Skills</div>
+
+  <div class="skills-grid" style="margin-bottom:32px;">
+    <div class="skill-group">
+      <h4>Backend Framework</h4>
+      <div class="skill-item">
+        <span class="skill-name">Spring Boot</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div>
         </div>
       </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="contact card">
-          <div class="contact__left">
-            <h2 class="section__title">Contact</h2>
-            <p class="section__desc">간단히 연락 주시면, 가능한 범위에서 빠르게 회신드리겠습니다.</p>
-          </div>
-
-          <div class="contact__right">
-            <a class="contact__item" href="mailto:okcoco03@naver.com">
-              <span class="contact__k">Email</span>
-              <span class="contact__v">okcoco03@naver.com</span>
-            </a>
-            <div class="contact__item">
-              <span class="contact__k">Phone</span>
-              <span class="contact__v">010-4664-3621</span>
-            </div>
-            <a class="contact__item" href="#" onclick="alert('GitHub/Blog 링크를 여기에 넣어주세요.'); return false;">
-              <span class="contact__k">Links</span>
-              <span class="contact__v">GitHub · Blog · Notion</span>
-            </a>
-          </div>
+      <div class="skill-item">
+        <span class="skill-name">FastAPI</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div><div class="dot-empty"></div>
         </div>
       </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container footer__inner">
-        <p class="muted">© <span id="y"></span> SEO JI HYE. All rights reserved.</p>
-        <a class="link" href="#top">Back to top</a>
+      <div class="skill-item">
+        <span class="skill-name">Django</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
       </div>
-    </footer>
-  </main>
+    </div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+    <div class="skill-group">
+      <h4>Language</h4>
+      <div class="skill-item">
+        <span class="skill-name">Java</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Python</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">JavaScript</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Infrastructure</h4>
+      <div class="skill-item">
+        <span class="skill-name">Docker</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">VMware / vSphere</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Kubernetes</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">AWS</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Database</h4>
+      <div class="skill-item">
+        <span class="skill-name">PostgreSQL</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Elasticsearch</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Pinecone (Vector)</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Collaboration</h4>
+      <div class="skill-item">
+        <span class="skill-name">Notion</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">GitHub</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Slack</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Design / Other</h4>
+      <div class="skill-item">
+        <span class="skill-name">Photoshop</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Figma</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">n8n</span>
+        <div class="skill-dots">
+          <div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-filled"></div><div class="dot-empty"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">Project Timeline</div>
+
+  <div style="position:relative;padding-left:20px;">
+    <div style="position:absolute;left:6px;top:0;bottom:0;width:2px;background:var(--line);"></div>
+
+    <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;position:relative;">
+      <div style="position:absolute;left:-18px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--accent);"></div>
+      <div style="font-family:'DM Mono',monospace;font-size:9.5px;color:var(--accent2);width:70px;flex-shrink:0;padding-top:1px;">2026.03</div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--accent);">VM Provisioning Portal</div>
+        <div style="font-size:10.5px;color:var(--ink-light);">Spring Boot · VMware vSphere SDK · Apache Guacamole</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;position:relative;">
+      <div style="position:absolute;left:-18px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--accent);"></div>
+      <div style="font-family:'DM Mono',monospace;font-size:9.5px;color:var(--accent2);width:70px;flex-shrink:0;padding-top:1px;">2026.01</div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--accent);">Vibecode (n8n RAG 봇)</div>
+        <div style="font-size:10.5px;color:var(--ink-light);">n8n · Gemini · Pinecone · Slack API · RAG Pipeline</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;position:relative;">
+      <div style="position:absolute;left:-18px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--accent2);"></div>
+      <div style="font-family:'DM Mono',monospace;font-size:9.5px;color:var(--accent2);width:70px;flex-shrink:0;padding-top:1px;">2025.03~</div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--accent);">Melog</div>
+        <div style="font-size:10.5px;color:var(--ink-light);">Spring Boot · Elasticsearch · PostgreSQL · AWS S3 · Docker</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:16px;position:relative;">
+      <div style="position:absolute;left:-18px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--line);border:2px solid var(--accent);"></div>
+      <div style="font-family:'DM Mono',monospace;font-size:9.5px;color:var(--accent2);width:70px;flex-shrink:0;padding-top:1px;">2024.06</div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--accent);">Codive</div>
+        <div style="font-size:10.5px;color:var(--ink-light);">FastAPI · Python · 실시간 경쟁 코딩 플랫폼</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="position:absolute;bottom:44px;left:60px;right:60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:16px;">
+    <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink-light);letter-spacing:.1em;">SEO JIHYE · Backend / Cloud Engineer</div>
+    <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink-light);letter-spacing:.1em;">okcoco03@naver.com · github.com/seajihey</div>
+  </div>
+</div>
+
 </body>
 </html>
